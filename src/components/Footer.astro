@@ -1,0 +1,82 @@
+---
+import MapleLeaf from './decorations/MapleLeaf.astro';
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3 class="footer-title">iGEM 2026</h3>
+        <p class="footer-subtitle">Yeast Modification for Decomposing Garden Waste</p>
+      </div>
+      <div class="footer-links">
+        <a href="#background">Background</a>
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#promotion">Promotion</a>
+        <a href="#members">Members</a>
+        <a href="#attribution">Attribution</a>
+      </div>
+      <div class="footer-credit">
+        <p>&copy; 2026 iGEM Team. Built with Astro.</p>
+      </div>
+    </div>
+  </div>
+  <MapleLeaf size={24} color="#C0392B" rotate={-45} class="deco-leaf" />
+</footer>
+
+<style>
+  .footer {
+    background: var(--burgundy);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .footer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 0.3rem;
+  }
+  .footer-subtitle {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    font-style: italic;
+  }
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+  .footer-credit {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    margin-top: 0.5rem;
+  }
+  .deco-leaf {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    opacity: 0.15;
+  }
+</style>
