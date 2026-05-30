@@ -1,0 +1,76 @@
+---
+import MapleLeaf from '../decorations/MapleLeaf.astro';
+import LeafCluster from '../decorations/LeafCluster.astro';
+
+const attributions = [
+  { name: 'Student Leader 1', contributions: 'Project conceptualization, team coordination, wiki design oversight, presentation preparation' },
+  { name: 'Student Leader 2', contributions: 'Lab protocol design, experimental execution, safety compliance, data collection' },
+  { name: 'Student Leader 3', contributions: 'Mathematical modeling, simulations, bioinformatics analysis, data visualization' },
+  { name: 'Student A', contributions: 'Wet lab experiments, sample preparation, assay measurements' },
+  { name: 'Student B', contributions: 'Literature review, documentation, wiki content writing' },
+  { name: 'Student C', contributions: 'Graphic design, illustration, video production, social media' },
+  { name: 'Student D', contributions: 'Human practices, stakeholder interviews, education outreach' },
+  { name: 'Dr. Advisor 1', contributions: 'Project supervision, funding acquisition, laboratory resources' },
+  { name: 'Dr. Advisor 2', contributions: 'Technical guidance, experimental design consultation, safety oversight' },
+];
+---
+
+<section id="attribution" class="section-attribution">
+  <div class="container">
+    <h2 class="section-title attrib-title">Attribution</h2>
+    <p class="section-subtitle attrib-intro">
+      We gratefully acknowledge the contributions of every team member, advisor, and supporter
+      who made this project possible.
+    </p>
+    <div class="attrib-list">
+      {attributions.map(a => (
+        <div class="attrib-card">
+          <div class="attrib-photo">
+            <div class="photo-frame">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <circle cx="18" cy="12" r="7" fill="#6B2D2D" opacity="0.15" />
+                <ellipse cx="18" cy="28" rx="12" ry="7" fill="#6B2D2D" opacity="0.15" />
+              </svg>
+            </div>
+          </div>
+          <div class="attrib-info">
+            <h4 class="attrib-name">{a.name}</h4>
+            <p class="attrib-desc">{a.contributions}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+  <MapleLeaf size={30} color="#D35400" rotate={15} class="deco-leaf deco-leaf-1" />
+  <LeafCluster class="deco-cluster deco-cluster-1" />
+</section>
+
+<style>
+  .section-attribution { background: rgba(107, 45, 45, 0.02); }
+  .attrib-title { text-align: center; margin-bottom: 0.8rem; }
+  .attrib-intro { text-align: center; max-width: 700px; margin: 0 auto 3rem; }
+  .attrib-list { display: flex; flex-direction: column; gap: 1rem; max-width: 800px; margin: 0 auto; }
+  .attrib-card {
+    display: flex; align-items: center; gap: 1.5rem;
+    background: var(--card-bg); border-radius: 16px; padding: 1.2rem 1.5rem;
+    border: 1px solid rgba(107, 45, 45, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .attrib-card:hover { transform: translateX(4px); box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+  .attrib-photo { flex-shrink: 0; }
+  .photo-frame {
+    width: 120px; height: 120px; border-radius: 24px;
+    background: rgba(107, 45, 45, 0.04);
+    border: 3px solid var(--burgundy-light);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .attrib-info { flex: 1; }
+  .attrib-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--burgundy); margin-bottom: 0.3rem; }
+  .attrib-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+  .deco-leaf-1 { position: absolute; top: 8%; left: 4%; }
+  .deco-cluster-1 { position: absolute; bottom: 3%; right: 2%; width: 90px; opacity: 0.4; }
+  @media (max-width: 768px) {
+    .attrib-card { flex-direction: column; text-align: center; gap: 1rem; }
+    .photo-frame { width: 100px; height: 100px; }
+  }
+</style>
