@@ -1,0 +1,70 @@
+---
+import MapleLeaf from '../decorations/MapleLeaf.astro';
+import Vine from '../decorations/Vine.astro';
+import LeafCluster from '../decorations/LeafCluster.astro';
+---
+
+<section id="background" class="section-bg">
+  <div class="container">
+    <div class="bg-grid">
+      <div class="bg-text">
+        <h2 class="section-title">Background</h2>
+        <p class="section-subtitle">
+          Every year, millions of tons of garden waste — leaves, branches, grass clippings — are discarded,
+          often ending up in landfills where they decompose anaerobically, releasing methane and other
+          harmful greenhouse gases. Traditional disposal methods are inefficient and environmentally costly.
+        </p>
+        <p class="section-subtitle">
+          Our project leverages engineered <em>Saccharomyces cerevisiae</em> (baker's yeast) to
+          break down lignin and cellulose in garden waste, converting them into valuable
+          bioproducts. This approach offers a sustainable, cost-effective solution to
+          urban green waste management.
+        </p>
+      </div>
+      <div class="bg-visual">
+        <div class="bg-image-placeholder">
+          <div class="placeholder-icon">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+              <circle cx="60" cy="60" r="50" fill="#4A7C59" opacity="0.15" />
+              <path d="M60 20 L65 45 L90 35 L75 55 L100 70 L75 75 L85 100 L60 80 L35 100 L45 75 L20 70 L45 55 L30 35 L55 45 Z" fill="#4A7C59" opacity="0.25" />
+              <path d="M60 20 L60 80 M60 20 L55 45 M60 20 L65 45 M60 60 L20 70 M60 60 L100 70 M60 60 L75 55 M60 60 L45 55 M60 60 L75 75 M60 60 L45 75 M60 60 L85 100 M60 60 L35 100" stroke="#4A7C59" stroke-width="1.5" opacity="0.15" />
+            </svg>
+          </div>
+          <p class="placeholder-text">[Background Illustration]</p>
+        </div>
+        <Vine width={160} height={240} color="#4A7C59" style="position: absolute; bottom: -20px; right: -40px; opacity: 0.4;" />
+      </div>
+    </div>
+  </div>
+  <MapleLeaf size={40} color="#C0392B" rotate={-15} class="deco-leaf deco-leaf-1" />
+  <MapleLeaf size={32} color="#D35400" rotate={25} class="deco-leaf deco-leaf-2" />
+  <LeafCluster class="deco-cluster deco-cluster-1" />
+</section>
+
+<style>
+  .section-bg { padding-top: 8rem; }
+  .bg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .bg-text { display: flex; flex-direction: column; gap: 1.2rem; }
+  .bg-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+  .bg-image-placeholder {
+    width: 100%; aspect-ratio: 4/3;
+    background: rgba(74, 124, 89, 0.08);
+    border-radius: 24px;
+    border: 2px dashed rgba(74, 124, 89, 0.2);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+    position: relative; z-index: 1;
+  }
+  .placeholder-text { color: var(--text-muted); font-size: 0.95rem; opacity: 0.6; font-style: italic; }
+  .deco-leaf { position: absolute; }
+  .deco-leaf-1 { top: 15%; left: 5%; }
+  .deco-leaf-2 { top: 25%; right: 8%; }
+  .deco-cluster-1 { position: absolute; bottom: 5%; right: 3%; width: 120px; }
+  @media (max-width: 768px) {
+    .bg-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
