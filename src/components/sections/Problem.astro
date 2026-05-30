@@ -1,0 +1,71 @@
+---
+import MapleLeaf from '../decorations/MapleLeaf.astro';
+import Vine from '../decorations/Vine.astro';
+import LeafCluster from '../decorations/LeafCluster.astro';
+---
+
+<section id="problem" class="section-problem">
+  <div class="container">
+    <div class="problem-grid">
+      <div class="problem-visual">
+        <div class="problem-image-placeholder">
+          <div class="placeholder-icon">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+              <circle cx="60" cy="50" r="35" fill="#8B3A3A" opacity="0.12" />
+              <path d="M60 15 C40 15 25 30 25 50 C25 75 60 95 60 95 C60 95 95 75 95 50 C95 30 80 15 60 15Z" fill="none" stroke="#8B3A3A" stroke-width="2" opacity="0.3" />
+              <path d="M45 40 L75 60 M75 40 L45 60" stroke="#8B3A3A" stroke-width="2.5" opacity="0.4" stroke-linecap="round" />
+              <path d="M52 70 L60 62 L68 70" stroke="#8B3A3A" stroke-width="2" opacity="0.3" fill="none" stroke-linecap="round" />
+              <rect x="35" y="30" width="10" height="12" rx="2" fill="#8B3A3A" opacity="0.15" />
+              <rect x="75" y="30" width="10" height="12" rx="2" fill="#8B3A3A" opacity="0.15" />
+            </svg>
+          </div>
+          <p class="placeholder-text">[Problem Illustration]</p>
+        </div>
+      </div>
+      <div class="problem-text">
+        <h2 class="section-title">Problem</h2>
+        <p class="section-subtitle">
+          Garden waste decomposition in landfills generates methane, a greenhouse gas 25 times
+          more potent than CO₂. Open burning of yard waste releases particulate matter and
+          toxic compounds, contributing to air pollution and respiratory issues.
+        </p>
+        <p class="section-subtitle">
+          Current composting methods are slow and require large land areas. There is a pressing
+          need for a faster, more efficient biological approach that can transform garden waste
+          into useful products rather than environmental burdens.
+        </p>
+      </div>
+    </div>
+  </div>
+  <MapleLeaf size={45} color="#C0392B" rotate={35} class="deco-leaf deco-leaf-1" />
+  <MapleLeaf size={28} color="#D35400" rotate={-20} class="deco-leaf deco-leaf-2" />
+  <LeafCluster class="deco-cluster deco-cluster-1" />
+  <Vine width={140} height={200} flipped={true} color="#4A7C59" style="position: absolute; top: 10%; left: -30px; opacity: 0.35;" />
+</section>
+
+<style>
+  .section-problem { background: rgba(107, 45, 45, 0.03); }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .problem-text { display: flex; flex-direction: column; gap: 1.2rem; }
+  .problem-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+  .problem-image-placeholder {
+    width: 100%; aspect-ratio: 4/3;
+    background: rgba(139, 58, 58, 0.06);
+    border-radius: 24px;
+    border: 2px dashed rgba(139, 58, 58, 0.15);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .placeholder-text { color: var(--text-muted); font-size: 0.95rem; opacity: 0.6; font-style: italic; }
+  .deco-leaf { position: absolute; }
+  .deco-leaf-1 { top: 20%; right: 5%; }
+  .deco-leaf-2 { bottom: 15%; left: 4%; }
+  .deco-cluster-1 { position: absolute; bottom: 5%; right: 3%; width: 100px; }
+  @media (max-width: 768px) {
+    .problem-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
