@@ -1,0 +1,33 @@
+---
+export interface Props {
+  class?: string;
+  size?: number;
+  color?: string;
+  rotate?: number;
+  style?: string;
+}
+
+const { class: className, size = 60, color = '#C0392B', rotate = 0 } = Astro.props;
+---
+
+<svg
+  class={className}
+  width={size}
+  height={size}
+  viewBox="0 0 100 100"
+  fill="none"
+  style={`transform: rotate(${rotate}deg); ${Astro.props.style || ''}`}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M50 5 L58 30 L85 15 L70 40 L95 50 L70 60 L85 85 L58 70 L50 95 L42 70 L15 85 L30 60 L5 50 L30 40 L15 15 L42 30 Z"
+    fill={color}
+    opacity="0.8"
+  />
+  <path
+    d="M50 5 L50 95 M50 5 L42 30 M50 5 L58 30 M50 50 L5 50 M50 50 L95 50 M50 50 L70 40 M50 50 L30 40 M50 50 L70 60 M50 50 L30 60 M50 50 L85 85 M50 50 L15 85"
+    stroke={color}
+    stroke-width="0.5"
+    opacity="0.3"
+  />
+</svg>
