@@ -1,0 +1,57 @@
+---
+import Tree from '../decorations/Tree.astro';
+import LeafCluster from '../decorations/LeafCluster.astro';
+import MapleLeaf from '../decorations/MapleLeaf.astro';
+---
+
+<section id="promotion" class="section-promo">
+  <div class="container">
+    <h2 class="section-title promo-title">Promotion Video</h2>
+    <div class="video-wrapper">
+      <Tree width={200} height={280} class="tree-left" />
+      <div class="video-container">
+        <div class="video-placeholder">
+          <div class="play-btn">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="30" fill="#6B2D2D" opacity="0.15" />
+              <circle cx="32" cy="32" r="28" stroke="#6B2D2D" stroke-width="2" opacity="0.3" />
+              <path d="M26 20 L26 44 L46 32 Z" fill="#6B2D2D" opacity="0.6" />
+            </svg>
+          </div>
+          <p class="placeholder-text">[Promotion Video Placeholder]</p>
+          <p class="placeholder-sub">Replace with your team's video embed</p>
+        </div>
+      </div>
+      <LeafCluster width={130} height={130} class="cluster-top-right" />
+    </div>
+  </div>
+  <LeafCluster width={100} height={100} class="deco-cluster deco-cluster-1" />
+  <MapleLeaf size={35} color="#C0392B" rotate={45} class="deco-leaf deco-leaf-1" />
+</section>
+
+<style>
+  .section-promo { background: rgba(107, 45, 45, 0.02); }
+  .promo-title { text-align: center; margin-bottom: 3rem; }
+  .video-wrapper { position: relative; display: flex; align-items: center; justify-content: center; gap: 2rem; }
+  .video-container { flex: 1; max-width: 800px; position: relative; z-index: 1; }
+  .video-placeholder {
+    width: 100%; aspect-ratio: 16/9;
+    background: rgba(107, 45, 45, 0.06);
+    border-radius: 20px;
+    border: 2px dashed rgba(107, 45, 45, 0.15);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .play-btn { cursor: pointer; transition: transform 0.3s; }
+  .play-btn:hover { transform: scale(1.1); }
+  .placeholder-text { color: var(--text-muted); font-size: 1rem; opacity: 0.6; font-style: italic; }
+  .placeholder-sub { color: var(--text-muted); font-size: 0.85rem; opacity: 0.4; }
+  .tree-left { flex-shrink: 0; opacity: 0.7; }
+  .cluster-top-right { position: absolute; top: -30px; right: -20px; opacity: 0.5; }
+  .deco-cluster-1 { position: absolute; bottom: 3%; left: 2%; opacity: 0.4; }
+  .deco-leaf-1 { position: absolute; top: 10%; right: 5%; }
+  @media (max-width: 768px) {
+    .video-wrapper { flex-direction: column; }
+    .tree-left { width: 120px; height: 170px; }
+    .cluster-top-right { width: 80px; top: -10px; right: -10px; }
+  }
+</style>
