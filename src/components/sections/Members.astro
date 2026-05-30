@@ -1,0 +1,150 @@
+---
+import MapleLeaf from '../decorations/MapleLeaf.astro';
+import LeafCluster from '../decorations/LeafCluster.astro';
+
+const teamMembers = [
+  { name: 'Student Leader 1', role: 'Team Leader', bio: 'Leads the overall project direction and coordinates team efforts.' },
+  { name: 'Student Leader 2', role: 'Lab Coordinator', bio: 'Oversees wet lab experiments and safety protocols.' },
+  { name: 'Student Leader 3', role: 'Modeling Lead', bio: 'Develops computational models for enzyme kinetics.' },
+];
+
+const students = [
+  'Student A', 'Student B', 'Student C', 'Student D',
+  'Student E', 'Student F', 'Student G', 'Student H',
+];
+
+const advisors = [
+  { name: 'Dr. Advisor 1', role: 'Principal Investigator' },
+  { name: 'Dr. Advisor 2', role: 'Lab Advisor' },
+];
+---
+
+<section id="members" class="section-members">
+  <div class="container">
+    <h2 class="section-title members-title">Meet Our Team</h2>
+
+    <div class="group-photo">
+      <div class="group-photo-placeholder">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="28" r="14" fill="#6B2D2D" opacity="0.12" />
+          <ellipse cx="40" cy="62" rx="24" ry="14" fill="#6B2D2D" opacity="0.12" />
+        </svg>
+        <p class="placeholder-text">[Team Group Photo]</p>
+      </div>
+    </div>
+
+    <h3 class="sub-section-title">Student Leaders</h3>
+    <div class="members-grid">
+      {teamMembers.map(m => (
+        <div class="member-card">
+          <div class="member-photo">
+            <div class="photo-placeholder">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="14" r="8" fill="#6B2D2D" opacity="0.15" />
+                <ellipse cx="20" cy="32" rx="14" ry="8" fill="#6B2D2D" opacity="0.15" />
+              </svg>
+            </div>
+          </div>
+          <h4 class="member-name">{m.name}</h4>
+          <p class="member-role">{m.role}</p>
+          <p class="member-bio">{m.bio}</p>
+        </div>
+      ))}
+    </div>
+
+    <h3 class="sub-section-title">Students</h3>
+    <div class="students-grid">
+      {students.map(s => (
+        <div class="student-card">
+          <div class="student-photo">
+            <div class="photo-placeholder-sm">
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                <circle cx="15" cy="10" r="6" fill="#6B2D2D" opacity="0.15" />
+                <ellipse cx="15" cy="24" rx="10" ry="6" fill="#6B2D2D" opacity="0.15" />
+              </svg>
+            </div>
+          </div>
+          <p class="student-name">{s}</p>
+        </div>
+      ))}
+    </div>
+
+    <h3 class="sub-section-title">Advisors</h3>
+    <div class="members-grid">
+      {advisors.map(a => (
+        <div class="member-card">
+          <div class="member-photo">
+            <div class="photo-placeholder">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="14" r="8" fill="#6B2D2D" opacity="0.15" />
+                <ellipse cx="20" cy="32" rx="14" ry="8" fill="#6B2D2D" opacity="0.15" />
+              </svg>
+            </div>
+          </div>
+          <h4 class="member-name">{a.name}</h4>
+          <p class="member-role">{a.role}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+  <MapleLeaf size={35} color="#C0392B" rotate={-30} class="deco-leaf deco-leaf-1" />
+  <LeafCluster class="deco-cluster deco-cluster-1" />
+</section>
+
+<style>
+  .section-members { background: rgba(74, 124, 89, 0.03); }
+  .members-title { text-align: center; margin-bottom: 2rem; }
+  .group-photo { display: flex; justify-content: center; margin-bottom: 3rem; }
+  .group-photo-placeholder {
+    width: 100%; max-width: 600px; aspect-ratio: 16/9;
+    background: rgba(107, 45, 45, 0.05);
+    border-radius: 20px;
+    border: 2px dashed rgba(107, 45, 45, 0.12);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
+  }
+  .placeholder-text { color: var(--text-muted); font-size: 0.95rem; opacity: 0.6; font-style: italic; }
+  .sub-section-title {
+    font-size: 1.8rem; text-align: center; margin: 2.5rem 0 1.5rem; color: var(--burgundy-light);
+  }
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem; margin-bottom: 1rem;
+  }
+  .member-card {
+    background: var(--card-bg); border-radius: 20px; padding: 1.5rem; text-align: center;
+    backdrop-filter: blur(8px); border: 1px solid rgba(107, 45, 45, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .member-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+  .member-photo { display: flex; justify-content: center; margin-bottom: 1rem; }
+  .photo-placeholder {
+    width: 160px; height: 160px; border-radius: 30px;
+    background: rgba(107, 45, 45, 0.04);
+    border: 3px solid var(--burgundy-light);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .member-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--burgundy); margin-bottom: 0.3rem; }
+  .member-role { font-size: 0.85rem; color: var(--maple-red); font-weight: 500; margin-bottom: 0.6rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .member-bio { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+  .students-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.5rem; }
+  .student-card {
+    background: var(--card-bg); border-radius: 16px; padding: 1.2rem; text-align: center;
+    border: 1px solid rgba(107, 45, 45, 0.06); transition: transform 0.2s;
+  }
+  .student-card:hover { transform: translateY(-3px); }
+  .student-photo { display: flex; justify-content: center; margin-bottom: 0.6rem; }
+  .photo-placeholder-sm {
+    width: 120px; height: 120px; border-radius: 24px;
+    background: rgba(107, 45, 45, 0.04);
+    border: 3px solid var(--burgundy-light);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .student-name { font-size: 0.95rem; color: var(--text-dark); font-weight: 500; }
+  .deco-leaf-1 { position: absolute; top: 5%; right: 3%; }
+  .deco-cluster-1 { position: absolute; bottom: 3%; left: 2%; width: 100px; opacity: 0.4; }
+  @media (max-width: 768px) {
+    .members-grid { grid-template-columns: 1fr; }
+    .students-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  }
+</style>
