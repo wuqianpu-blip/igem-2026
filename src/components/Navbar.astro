@@ -1,0 +1,73 @@
+---
+const sections = [
+  { id: 'background', label: 'Background' },
+  { id: 'problem', label: 'Problem' },
+  { id: 'solution', label: 'Solution' },
+  { id: 'promotion', label: 'Promotion' },
+  { id: 'members', label: 'Members' },
+  { id: 'attribution', label: 'Attribution' },
+];
+---
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="logo-text">iGEM 2026</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      {sections.map(s => (
+        <a href={`#${s.id}`} class="nav-link">{s.label}</a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle?.addEventListener('click', () => {
+    links?.classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => { links?.classList.remove('open'); });
+  });
+</script>
+
+<style>
+  .navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(255, 243, 194, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(107, 45, 45, 0.1);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between; height: 60px;
+  }
+  .nav-logo { text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700; color: var(--burgundy);
+  }
+  .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+  .nav-link {
+    text-decoration: none; color: var(--text-muted);
+    font-size: 0.9rem; font-weight: 500; transition: color 0.2s;
+    letter-spacing: 0.02em; text-transform: uppercase;
+  }
+  .nav-link:hover { color: var(--burgundy); }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-toggle span { width: 24px; height: 2px; background: var(--burgundy); border-radius: 2px; transition: 0.3s; }
+  @media (max-width: 768px) {
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none; position: absolute; top: 60px; left: 0; right: 0;
+      background: rgba(255, 243, 194, 0.98); flex-direction: column;
+      padding: 1rem 2rem; gap: 1rem; border-bottom: 1px solid rgba(107, 45, 45, 0.1);
+    }
+    .nav-links.open { display: flex; }
+  }
+</style>
