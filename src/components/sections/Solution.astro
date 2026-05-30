@@ -1,0 +1,95 @@
+---
+import Vine from '../decorations/Vine.astro';
+import Bacteria from '../decorations/Bacteria.astro';
+import LeafCluster from '../decorations/LeafCluster.astro';
+---
+
+<section id="solution" class="section-solution">
+  <div class="container">
+    <div class="solution-grid">
+      <div class="solution-text">
+        <h2 class="section-title">Solution</h2>
+        <p class="section-subtitle">
+          We engineer <em>Saccharomyces cerevisiae</em> to produce a powerful cocktail of
+          lignocellulolytic enzymes — cellulases, hemicellulases, and lignin peroxidases —
+          enabling direct breakdown of garden waste components.
+        </p>
+        <p class="section-subtitle">
+          Our modified yeast strain can be cultivated on-site using garden waste as feedstock,
+          creating a closed-loop system. The resulting sugars are fermented into bioethanol
+          and other valuable biochemicals, while the residual biomass serves as nutrient-rich
+          soil amendment.
+        </p>
+        <div class="solution-highlights">
+          <div class="highlight-item">
+            <span class="highlight-icon">🌿</span>
+            <span>Cellulose → Glucose → Bioethanol</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">🌱</span>
+            <span>Lignin → Aromatic compounds → Bioplastics</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">🌍</span>
+            <span>Zero-waste, carbon-negative process</span>
+          </div>
+        </div>
+      </div>
+      <div class="solution-visual">
+        <div class="solution-image-placeholder">
+          <div class="placeholder-icon">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+              <ellipse cx="60" cy="60" rx="35" ry="25" fill="#6B9E7A" opacity="0.15" />
+              <ellipse cx="60" cy="60" rx="35" ry="25" stroke="#4A7C59" stroke-width="2" opacity="0.4" />
+              <circle cx="40" cy="50" r="4" fill="#4A7C59" opacity="0.6" />
+              <circle cx="50" cy="45" r="3.5" fill="#4A7C59" opacity="0.6" />
+              <circle cx="60" cy="48" r="3" fill="#4A7C59" opacity="0.6" />
+              <circle cx="70" cy="52" r="4" fill="#4A7C59" opacity="0.6" />
+              <circle cx="80" cy="48" r="3.5" fill="#4A7C59" opacity="0.6" />
+              <path d="M55 75 L50 88 L60 88 Z" fill="#4A7C59" opacity="0.3" />
+              <path d="M65 75 L60 88 L70 88 Z" fill="#4A7C59" opacity="0.3" />
+              <path d="M30 70 L25 60 L35 60 Z" fill="#6B9E7A" opacity="0.3" />
+              <path d="M90 70 L85 60 L95 60 Z" fill="#6B9E7A" opacity="0.3" />
+              <path d="M35 80 L25 85 L30 75 Z" fill="#7BAE8A" opacity="0.25" />
+              <path d="M85 80 L75 85 L80 75 Z" fill="#7BAE8A" opacity="0.25" />
+            </svg>
+          </div>
+          <p class="placeholder-text">[Yeast Illustration]</p>
+        </div>
+        <Bacteria size={60} color="#6B9E7A" style="position: absolute; top: -10px; right: -10px; opacity: 0.5;" />
+        <Bacteria size={45} color="#4A7C59" style="position: absolute; bottom: 30px; left: -20px; opacity: 0.4;" />
+        <Bacteria size={35} color="#7BAE8A" style="position: absolute; top: 40%; right: -25px; opacity: 0.35;" />
+      </div>
+    </div>
+  </div>
+  <LeafCluster class="deco-cluster deco-cluster-1" />
+  <Vine width={150} height={220} color="#4A7C59" style="position: absolute; right: 0; bottom: 0; opacity: 0.3;" />
+</section>
+
+<style>
+  .section-solution { background: rgba(74, 124, 89, 0.04); }
+  .solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .solution-text { display: flex; flex-direction: column; gap: 1.2rem; }
+  .solution-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+  .solution-image-placeholder {
+    width: 100%; aspect-ratio: 4/3;
+    background: rgba(74, 124, 89, 0.08);
+    border-radius: 24px;
+    border: 2px dashed rgba(74, 124, 89, 0.2);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+    position: relative; z-index: 1;
+  }
+  .placeholder-text { color: var(--text-muted); font-size: 0.95rem; opacity: 0.6; font-style: italic; }
+  .solution-highlights { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem; }
+  .highlight-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; color: var(--text-muted); }
+  .highlight-icon { font-size: 1.3rem; }
+  .deco-cluster-1 { position: absolute; top: 5%; left: 3%; width: 100px; opacity: 0.5; }
+  @media (max-width: 768px) {
+    .solution-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
